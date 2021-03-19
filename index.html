@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Annotations</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container-fluid"></div>
+<div id="app">
+<div class="row">
+<div class="col">
+<fieldset>
+<legend class="display-3">{{ title }}</legend>
+<div class='form'>
+<div class="mb-3">
+<label for="note-title" class="form-label">Note title</label>
+<input type="text" class="form-control" id="note-title" v-model="note.title" />
+</div>
+<div class="mb-3">
+<label for="note-text" class="form-label">Note text</label>
+<textarea type="text" class="form-control" id="note-text"
+v-model="note.text"></textarea>
+</div>
+<button type="submit" class="btn btn-primary" @click="addNote">Submit</button>F
+</div>
+</fieldset>
+
+<fieldset v-if="notes.length">
+<hr>
+<div class="col-sm-12">
+<legend class="display-6">Notes list</legend>
+<div class="col-sm-4 mb-3" v-for="(note, index) in notes">
+<div class="card border-dark">
+<div class="card-body">
+<button class="btn-close float-end" @click="removeNote(index)"></button>
+<h4 class="card-title">{{ note.title }}</h4>
+<h6 class="card-subtitle mb-2 text-muted">{{ note.date }}</h6>
+<p class="card-text">{{ note.text }}</p>
+</div>
+</div>
+</div>
+</div>
+</fieldset>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript" src="http://unpkg.com/vue" charset="utf-8"></script>
+<script type="text/javascript" src="app.js" charset="utf-8"></script>
+
+</body>
+
+</html>
